@@ -2,26 +2,21 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-const TransactionHistoryItem = ({ item }) => {
-  if (item.length === 0) {
-    return null;
-  }
-
+const TransactionHistoryItem = ({ id, type, amount, currency }) => {
   return (
-    <>
-      <td>{item.type}</td>
-      <td>{item.amount}</td>
-      <td>{item.currency}</td>
-    </>
+    <tr key={id}>
+      <td>{type}</td>
+      <td>{amount}</td>
+      <td>{currency}</td>
+    </tr>
   );
 };
 
 TransactionHistoryItem.propTypes = {
-  item: PropTypes.shape({
-    type: PropTypes.string.isRequired,
-    amount: PropTypes.string.isRequired,
-    currency: PropTypes.string.isRequired,
-  }),
+  id: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  amount: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired,
 };
 
 export default TransactionHistoryItem;
