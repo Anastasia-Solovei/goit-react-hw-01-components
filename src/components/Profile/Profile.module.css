@@ -1,0 +1,28 @@
+.container {
+  border: 1px solid rgb(208, 208, 209);
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: lightslategrey;
+  background-color: white;
+  overflow: hidden;
+}
+
+.description {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  border: 0.5px solid rgb(208, 208, 209);
+  width: 150px;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+}
