@@ -8,19 +8,7 @@ const FriendList = ({ friends }) => {
     return null;
   }
 
-  return (
-    <ul className={s.list}>
-      {friends.map(friend => (
-        <li className={s.container} key={friend.id}>
-          <FriendListItem
-            avatar={friend.avatar}
-            name={friend.name}
-            isOnline={friend.isOnline}
-          />
-        </li>
-      ))}
-    </ul>
-  );
+  return <ul className={s.list}>{friends.map(FriendListItem)}</ul>;
 };
 
 export default FriendList;
