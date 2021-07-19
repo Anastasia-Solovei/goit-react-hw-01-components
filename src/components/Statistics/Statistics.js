@@ -4,12 +4,16 @@ import s from './Statistics.module.css';
 import PropTypes from 'prop-types';
 import randomBgColor from './random-bg-color';
 
-const StatListItem = ({ item }) => {
+const StatListItem = ({ id, label, percentage }) => {
   return (
-    <>
-      <span className={s.label}>{item.label}</span>
-      <span className={s.percentage}>{item.percentage}%</span>
-    </>
+    <li
+      className={s.item}
+      key={id}
+      style={{ backgroundColor: randomBgColor() }}
+    >
+      <span className={s.label}>{label}</span>
+      <span className={s.percentage}>{percentage}%</span>
+    </li>
   );
 };
 
@@ -18,19 +22,7 @@ const StatList = ({ items }) => {
     return null;
   }
 
-  return (
-    <ul className={s.list}>
-      {items.map(item => (
-        <li
-          className={s.item}
-          key={item.id}
-          style={{ backgroundColor: randomBgColor() }}
-        >
-          <StatListItem item={item} />
-        </li>
-      ))}
-    </ul>
-  );
+  return <ul className={s.list}>{items.map(StatListItem)}</ul>;
 };
 
 const Statistics = ({ title, stats }) => {
