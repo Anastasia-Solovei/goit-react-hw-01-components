@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import s from './TransactionHistory.module.css';
-import TransactionsList from './TransactionsList';
+import TransactionHistoryItem from './TransactionHistoryItem';
 
 const TransactionHistory = ({ items }) => {
   return (
@@ -15,9 +15,7 @@ const TransactionHistory = ({ items }) => {
         </tr>
       </thead>
 
-      <tbody>
-        <TransactionsList items={items} />
-      </tbody>
+      <tbody>{items.map(TransactionHistoryItem)}</tbody>
     </table>
   );
 };
