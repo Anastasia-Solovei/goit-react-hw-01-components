@@ -4,31 +4,36 @@ import s from './FriendList.module.css';
 import PropTypes from 'prop-types';
 import defaultImage from './default.jpg';
 
-const FriendListItem = ({ id, avatar = defaultImage, name, isOnline }) => {
+const FriendListItem = ({ friend }) => {
   return (
-    <li key={id} className={s.container}>
+    <li className={s.container}>
       <span
         className={s.status}
-        style={{ backgroundColor: isOnline ? 'green' : 'red' }}
+        style={{ backgroundColor: friend.isOnline ? 'green' : 'red' }}
       >
-        {isOnline}
+        {friend.isOnline}
       </span>
       <img
         className={s.avatar}
-        src={avatar ?? defaultImage}
-        alt={name}
+        src={friend.avatar}
+        alt={friend.name}
         width="48"
       />
-      <p className={s.name}>{name}</p>
+      <p className={s.name}>{friend.name}</p>
     </li>
   );
 };
 
+FriendListItem.defaultProps = {
+  avatar: defaultImage,
+};
+
 FriendListItem.propTypes = {
-  id: PropTypes.number.isRequired,
-  avatar: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  isOnline: PropTypes.bool.isRequired,
+  friend: PropTypes.shape({
+    avatar: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    isOnline: PropTypes.bool.isRequired,
+  }),
 };
 
 export default FriendListItem;
